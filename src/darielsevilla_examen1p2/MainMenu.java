@@ -7,6 +7,7 @@ package darielsevilla_examen1p2;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -54,6 +55,8 @@ public class MainMenu extends javax.swing.JFrame {
         tf_def = new javax.swing.JTextField();
         tf_host = new javax.swing.JTextField();
         pn_listar = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta_listar = new javax.swing.JTextArea();
         pn_Crear = new javax.swing.JPanel();
         lb_escritorioAtributo1 = new javax.swing.JLabel();
         lb_escritorioAtributo2 = new javax.swing.JLabel();
@@ -240,15 +243,28 @@ public class MainMenu extends javax.swing.JFrame {
 
         pn_listar.setBackground(new java.awt.Color(153, 153, 153));
 
+        ta_listar.setBackground(new java.awt.Color(255, 255, 255));
+        ta_listar.setColumns(20);
+        ta_listar.setForeground(new java.awt.Color(0, 0, 0));
+        ta_listar.setRows(5);
+        ta_listar.setEnabled(false);
+        jScrollPane1.setViewportView(ta_listar);
+
         javax.swing.GroupLayout pn_listarLayout = new javax.swing.GroupLayout(pn_listar);
         pn_listar.setLayout(pn_listarLayout);
         pn_listarLayout.setHorizontalGroup(
             pn_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGroup(pn_listarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pn_listarLayout.setVerticalGroup(
             pn_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 439, Short.MAX_VALUE)
+            .addGroup(pn_listarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         tp_opcionesCrud.addTab("tab3", pn_listar);
@@ -429,6 +445,11 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.add(bt_ingreseLaptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 132, -1, -1));
 
         bt_listar.setText("Listar");
+        bt_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_listarActionPerformed(evt);
+            }
+        });
         jPanel2.add(bt_listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 212, -1, -1));
 
         bt_regreso.setText("Salida");
@@ -596,7 +617,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_crudPC1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String Host = tf_ip.getText();
+        String Host = tf_host.getText();
         String Ip = tf_ip.getText();
         String Mascara = tf_mask.getText();
         String Marca = tf_marca.getText(); 
@@ -636,6 +657,20 @@ public class MainMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Hubo un error");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void bt_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_listarActionPerformed
+        String resp = "";
+        int x = 1;
+        for (PC pc : pcs) {
+            resp += "PC " + x + "\n";
+            resp += "Nombre: " + pc.getHostname() + " IP: " + pc.getIp() + " Mascara: " + pc.getMascara() + "\n\n";
+            
+        }
+        
+        ta_listar.setText(resp);
+        tp_opcionesCrud.setSelectedIndex(2);        
+       
+    }//GEN-LAST:event_bt_listarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -698,6 +733,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_escritorioAtributo1;
     private javax.swing.JLabel lb_escritorioAtributo2;
     private javax.swing.JLabel lb_escritorioAtributo3;
@@ -714,6 +750,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel pn_menu;
     private javax.swing.JRadioButton rb_rgbNo;
     private javax.swing.JRadioButton rb_rgbSi;
+    private javax.swing.JTextArea ta_listar;
     private javax.swing.JTextField tf_def;
     private javax.swing.JTextField tf_host;
     private javax.swing.JTextField tf_ip;

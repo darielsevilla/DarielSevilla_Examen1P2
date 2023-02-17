@@ -73,7 +73,7 @@ public class PC_Escritorio extends PC{
         }else{
             graphics = "No tiene";
         }
-        return "ram: " + ram + "\n"
+        return super.toString()+"ram: " + ram + "\n"
                 + "almacenamiento: " + almacenamiento + "\n"
                 + "tipo: " + type + "\n"
                 + "tarjeta grafica: " + graphics + "\n";

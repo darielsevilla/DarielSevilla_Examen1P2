@@ -56,7 +56,7 @@ public class Laptop extends PC{
         }else{
             temp = "No tiene";
         }
-        return "marca: " + marca + "\ndefinicion: " + definicion + "\nrgb: " + rgb + "\n";
+        return super.toString()+"marca: " + marca + "\ndefinicion: " + definicion + "\nrgb: " + rgb + "\n";
     }
     
     
