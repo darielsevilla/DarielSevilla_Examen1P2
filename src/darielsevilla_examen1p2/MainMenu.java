@@ -48,6 +48,11 @@ public class MainMenu extends javax.swing.JFrame {
         rb_rgbSi = new javax.swing.JRadioButton();
         rb_rgbNo = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
+        tf_ip = new javax.swing.JTextField();
+        tf_mask = new javax.swing.JTextField();
+        tf_marca = new javax.swing.JTextField();
+        tf_def = new javax.swing.JTextField();
+        tf_host = new javax.swing.JTextField();
         pn_listar = new javax.swing.JPanel();
         pn_Crear = new javax.swing.JPanel();
         lb_escritorioAtributo1 = new javax.swing.JLabel();
@@ -123,6 +128,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         bg_grupo1.add(rb_rgbSi);
         rb_rgbSi.setForeground(new java.awt.Color(0, 0, 0));
+        rb_rgbSi.setSelected(true);
         rb_rgbSi.setText("Si");
 
         bg_grupo1.add(rb_rgbNo);
@@ -132,45 +138,95 @@ public class MainMenu extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(51, 255, 51));
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("enviar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        tf_ip.setBackground(new java.awt.Color(255, 255, 255));
+        tf_ip.setForeground(new java.awt.Color(0, 0, 0));
+
+        tf_mask.setBackground(new java.awt.Color(255, 255, 255));
+        tf_mask.setForeground(new java.awt.Color(0, 0, 0));
+
+        tf_marca.setBackground(new java.awt.Color(255, 255, 255));
+        tf_marca.setForeground(new java.awt.Color(0, 0, 0));
+
+        tf_def.setBackground(new java.awt.Color(255, 255, 255));
+        tf_def.setForeground(new java.awt.Color(0, 0, 0));
+
+        tf_host.setBackground(new java.awt.Color(255, 255, 255));
+        tf_host.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout pn_crearLaptopLayout = new javax.swing.GroupLayout(pn_crearLaptop);
         pn_crearLaptop.setLayout(pn_crearLaptopLayout);
         pn_crearLaptopLayout.setHorizontalGroup(
             pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_crearLaptopLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(at2)
-                    .addComponent(at3)
-                    .addComponent(at4)
-                    .addComponent(at5)
-                    .addGroup(pn_crearLaptopLayout.createSequentialGroup()
-                        .addComponent(at6)
-                        .addGap(18, 18, 18)
-                        .addComponent(rb_rgbSi)
-                        .addGap(26, 26, 26)
-                        .addComponent(rb_rgbNo))
-                    .addComponent(at1))
-                .addContainerGap(293, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_crearLaptopLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pn_crearLaptopLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pn_crearLaptopLayout.createSequentialGroup()
+                                .addComponent(at3)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(pn_crearLaptopLayout.createSequentialGroup()
+                                .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pn_crearLaptopLayout.createSequentialGroup()
+                                        .addComponent(at6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rb_rgbSi)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(rb_rgbNo))
+                                    .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(pn_crearLaptopLayout.createSequentialGroup()
+                                            .addComponent(at1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(tf_host, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(pn_crearLaptopLayout.createSequentialGroup()
+                                            .addComponent(at2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(tf_ip, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pn_crearLaptopLayout.createSequentialGroup()
+                                            .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(at5)
+                                                .addComponent(at4))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(tf_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(tf_def, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(tf_mask, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE))))
+                    .addGroup(pn_crearLaptopLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
                 .addGap(14, 14, 14))
         );
         pn_crearLaptopLayout.setVerticalGroup(
             pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_crearLaptopLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(at1)
+                .addGap(22, 22, 22)
+                .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(at1)
+                    .addComponent(tf_host, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(at2)
-                .addGap(32, 32, 32)
-                .addComponent(at3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(at4)
-                .addGap(42, 42, 42)
-                .addComponent(at5)
-                .addGap(42, 42, 42)
+                .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(at2)
+                    .addComponent(tf_ip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(at3)
+                    .addComponent(tf_mask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(at4)
+                    .addComponent(tf_marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(at5)
+                    .addComponent(tf_def, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
                 .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(at6)
                     .addComponent(rb_rgbSi)
@@ -463,7 +519,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_salidaActionPerformed
 
     private void bt_ingreseLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ingreseLaptopActionPerformed
-        // TODO add your handling code here:
+        tp_opcionesCrud.setSelectedIndex(1);       
     }//GEN-LAST:event_bt_ingreseLaptopActionPerformed
 
     private void atriHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atriHostActionPerformed
@@ -511,7 +567,8 @@ public class MainMenu extends javax.swing.JFrame {
             } else {
                 t2 = false;
             }
-            PC_Escritorio nueva = new PC_Escritorio(Integer.parseInt(Ram), Integer.parseInt(Alm), t1, t2, Ip, Mascara, Host);
+            String mask = "255.255.255." + Mascara;
+            PC_Escritorio nueva = new PC_Escritorio(Integer.parseInt(Ram), Integer.parseInt(Alm), t1, t2, Ip, mask, Host);
             pcs.add(nueva);
            atriHost.setText(null);
            atriAlm.setText(null);
@@ -537,6 +594,48 @@ public class MainMenu extends javax.swing.JFrame {
         wd_crudMenu.setVisible(true); 
         tp_opcionesCrud.setSelectedIndex(4);// TODO add your handling code here:
     }//GEN-LAST:event_bt_crudPC1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String Host = tf_ip.getText();
+        String Ip = tf_ip.getText();
+        String Mascara = tf_mask.getText();
+        String Marca = tf_marca.getText(); 
+        String def = tf_def.getText();
+        boolean truth;
+        
+        try{
+            //check ip
+            String[] checkIp = Ip.split(".");
+            for (String string : checkIp) {
+                if ((Integer.parseInt(string) < 0 || Integer.parseInt(string) > 255) || checkIp.length != 4) {
+                    throw new Exception();
+                }
+            }
+            //check mask
+            String[] maskOptions = {"192","224","240","248","252","254","255"};
+            int x = 0;
+            for (String maskOption : maskOptions) {
+                if(maskOption.equals(Mascara)){
+                    x++;
+                }
+            }
+            if(x == 0){
+                throw new Exception();
+            }
+            
+            
+             String mask = "255.255.255." + Mascara;
+             pcs.add(new Laptop(Marca, def, rb_rgbSi.isSelected(), Ip, mask, Host));
+             tf_host.setText(null);
+             tf_ip.setText(null);
+             tf_mask.setText(null);
+             tf_marca.setText(null);
+             tf_def.setText(null);
+             tp_opcionesCrud.setSelectedIndex(4);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Hubo un error");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -615,6 +714,11 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel pn_menu;
     private javax.swing.JRadioButton rb_rgbNo;
     private javax.swing.JRadioButton rb_rgbSi;
+    private javax.swing.JTextField tf_def;
+    private javax.swing.JTextField tf_host;
+    private javax.swing.JTextField tf_ip;
+    private javax.swing.JTextField tf_marca;
+    private javax.swing.JTextField tf_mask;
     private javax.swing.JTabbedPane tp_opcionesCrud;
     private javax.swing.JFrame wd_crudMenu;
     // End of variables declaration//GEN-END:variables
