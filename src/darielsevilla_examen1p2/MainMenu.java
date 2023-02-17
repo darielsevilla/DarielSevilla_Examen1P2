@@ -5,6 +5,7 @@
 package darielsevilla_examen1p2;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class MainMenu extends javax.swing.JFrame {
 
     ArrayList<PC> pcs = new ArrayList();
+    
 
     public MainMenu() {
         initComponents();
@@ -39,6 +41,8 @@ public class MainMenu extends javax.swing.JFrame {
         pn_crudPrincipal = new javax.swing.JPanel();
         tp_opcionesCrud = new javax.swing.JTabbedPane();
         pn_Eliminar = new javax.swing.JPanel();
+        bt_elimnar = new javax.swing.JButton();
+        cb_eliminar = new javax.swing.JComboBox<>();
         pn_crearLaptop = new javax.swing.JPanel();
         at1 = new javax.swing.JLabel();
         at2 = new javax.swing.JLabel();
@@ -79,6 +83,7 @@ public class MainMenu extends javax.swing.JFrame {
         bt_ingreseLaptop = new javax.swing.JButton();
         bt_listar = new javax.swing.JButton();
         bt_regreso = new javax.swing.JButton();
+        bt_eliminar = new javax.swing.JButton();
         bg_grupo1 = new javax.swing.ButtonGroup();
         pn_menu = new javax.swing.JPanel();
         lb_tituloMenu = new javax.swing.JLabel();
@@ -96,15 +101,38 @@ public class MainMenu extends javax.swing.JFrame {
 
         pn_Eliminar.setBackground(new java.awt.Color(153, 153, 153));
 
+        bt_elimnar.setBackground(new java.awt.Color(255, 0, 0));
+        bt_elimnar.setForeground(new java.awt.Color(0, 0, 0));
+        bt_elimnar.setText("eliminar");
+        bt_elimnar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_elimnarActionPerformed(evt);
+            }
+        });
+
+        cb_eliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout pn_EliminarLayout = new javax.swing.GroupLayout(pn_Eliminar);
         pn_Eliminar.setLayout(pn_EliminarLayout);
         pn_EliminarLayout.setHorizontalGroup(
             pn_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_EliminarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bt_elimnar)
+                .addGap(186, 186, 186))
+            .addGroup(pn_EliminarLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         pn_EliminarLayout.setVerticalGroup(
             pn_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 439, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_EliminarLayout.createSequentialGroup()
+                .addContainerGap(181, Short.MAX_VALUE)
+                .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108)
+                .addComponent(bt_elimnar)
+                .addGap(105, 105, 105))
         );
 
         tp_opcionesCrud.addTab("tab1", pn_Eliminar);
@@ -453,7 +481,15 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.add(bt_listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 212, -1, -1));
 
         bt_regreso.setText("Salida");
-        jPanel2.add(bt_regreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 279, -1, -1));
+        jPanel2.add(bt_regreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+
+        bt_eliminar.setText("Eliminar");
+        bt_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_eliminarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bt_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 279, -1, -1));
 
         pn_crudPrincipal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 161, 440));
 
@@ -559,11 +595,15 @@ public class MainMenu extends javax.swing.JFrame {
         boolean t2;
         try {
             //check ip
-            String[] checkIp = Ip.split(".");
+            String[] checkIp = Ip.split("\\.");
+            System.out.println(checkIp.length);
             for (String string : checkIp) {
                 if ((Integer.parseInt(string) < 0 || Integer.parseInt(string) > 255) || checkIp.length != 4) {
                     throw new Exception();
                 }
+            }
+            if(checkIp.length  != 4){
+                throw new Exception();
             }
             //check mask
             String[] maskOptions = {"192","224","240","248","252","254","255"};
@@ -672,6 +712,30 @@ public class MainMenu extends javax.swing.JFrame {
        
     }//GEN-LAST:event_bt_listarActionPerformed
 
+    private void bt_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_eliminarActionPerformed
+        DefaultComboBoxModel mod =(DefaultComboBoxModel) cb_eliminar.getModel();
+        mod.removeAllElements();
+        ArrayList<String> nombres = new ArrayList();
+        
+        for (PC pc : pcs) {
+            nombres.add(pc.getHostname());
+        }
+        mod.addAll(nombres);
+        tp_opcionesCrud.setSelectedIndex(0);
+    }//GEN-LAST:event_bt_eliminarActionPerformed
+
+    private void bt_elimnarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_elimnarActionPerformed
+       String eliminar =  (String) cb_eliminar.getSelectedItem();
+        for (PC pc : pcs) {
+            if(pc.getHostname().equals(eliminar)){
+                pcs.remove(pc);
+                JOptionPane.showMessageDialog(null, "pc eliminada");
+                break;
+            }
+        }
+        tp_opcionesCrud.setSelectedIndex(4);
+    }//GEN-LAST:event_bt_elimnarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -725,11 +789,14 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> boxTipo;
     private javax.swing.JButton bt_crudPC;
     private javax.swing.JButton bt_crudPC1;
+    private javax.swing.JButton bt_eliminar;
+    private javax.swing.JButton bt_elimnar;
     private javax.swing.JButton bt_ingreseEscritorio;
     private javax.swing.JButton bt_ingreseLaptop;
     private javax.swing.JButton bt_listar;
     private javax.swing.JButton bt_regreso;
     private javax.swing.JButton bt_salida;
+    private javax.swing.JComboBox<String> cb_eliminar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel2;
