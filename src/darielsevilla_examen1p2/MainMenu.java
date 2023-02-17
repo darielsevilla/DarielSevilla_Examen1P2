@@ -4,17 +4,25 @@
  */
 package darielsevilla_examen1p2;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author HP
  */
 public class MainMenu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainMenu
-     */
+    ArrayList<PC> pcs = new ArrayList();
+
     public MainMenu() {
         initComponents();
+        wd_crudMenu.setSize(this.getSize());
+        wd_crudMenu.setBounds(0, 0, 668, 480);
+        wd_crudMenu.setVisible(false);
+        wd_crudMenu.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -29,20 +37,45 @@ public class MainMenu extends javax.swing.JFrame {
         wd_crudMenu = new javax.swing.JFrame();
         pn_crudPrincipal = new javax.swing.JPanel();
         tp_opcionesCrud = new javax.swing.JTabbedPane();
-        pn_crearPc = new javax.swing.JPanel();
-        pn_crearLaptop = new javax.swing.JPanel();
-        pn_listar = new javax.swing.JPanel();
         pn_Eliminar = new javax.swing.JPanel();
+        pn_crearLaptop = new javax.swing.JPanel();
+        at1 = new javax.swing.JLabel();
+        at2 = new javax.swing.JLabel();
+        at3 = new javax.swing.JLabel();
+        at4 = new javax.swing.JLabel();
+        at5 = new javax.swing.JLabel();
+        at6 = new javax.swing.JLabel();
+        rb_rgbSi = new javax.swing.JRadioButton();
+        rb_rgbNo = new javax.swing.JRadioButton();
+        jButton2 = new javax.swing.JButton();
+        pn_listar = new javax.swing.JPanel();
+        pn_Crear = new javax.swing.JPanel();
+        lb_escritorioAtributo1 = new javax.swing.JLabel();
+        lb_escritorioAtributo2 = new javax.swing.JLabel();
+        lb_escritorioAtributo3 = new javax.swing.JLabel();
+        lb_escritorioAtributo4 = new javax.swing.JLabel();
+        lb_escritorioAtributo5 = new javax.swing.JLabel();
+        lb_escritorioAtributo6 = new javax.swing.JLabel();
+        lb_escritorioAtributo7 = new javax.swing.JLabel();
+        atriHost = new javax.swing.JTextField();
+        atriMask = new javax.swing.JTextField();
+        atriAlm = new javax.swing.JTextField();
+        atriRam = new javax.swing.JTextField();
+        atriIP = new javax.swing.JTextField();
+        boxTipo = new javax.swing.JComboBox<>();
+        boxGraphics = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        base = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         bt_ingreseEscritorio = new javax.swing.JButton();
         bt_ingreseLaptop = new javax.swing.JButton();
         bt_listar = new javax.swing.JButton();
         bt_regreso = new javax.swing.JButton();
+        bg_grupo1 = new javax.swing.ButtonGroup();
         pn_menu = new javax.swing.JPanel();
         lb_tituloMenu = new javax.swing.JLabel();
         bt_crudPC = new javax.swing.JButton();
         bt_crudPC1 = new javax.swing.JButton();
-        bt_IngresePC = new javax.swing.JButton();
         bt_salida = new javax.swing.JButton();
 
         wd_crudMenu.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -53,31 +86,103 @@ public class MainMenu extends javax.swing.JFrame {
         tp_opcionesCrud.setBackground(new java.awt.Color(153, 153, 153));
         tp_opcionesCrud.setForeground(new java.awt.Color(0, 0, 0));
 
-        javax.swing.GroupLayout pn_crearPcLayout = new javax.swing.GroupLayout(pn_crearPc);
-        pn_crearPc.setLayout(pn_crearPcLayout);
-        pn_crearPcLayout.setHorizontalGroup(
-            pn_crearPcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pn_Eliminar.setBackground(new java.awt.Color(153, 153, 153));
+
+        javax.swing.GroupLayout pn_EliminarLayout = new javax.swing.GroupLayout(pn_Eliminar);
+        pn_Eliminar.setLayout(pn_EliminarLayout);
+        pn_EliminarLayout.setHorizontalGroup(
+            pn_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 490, Short.MAX_VALUE)
         );
-        pn_crearPcLayout.setVerticalGroup(
-            pn_crearPcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pn_EliminarLayout.setVerticalGroup(
+            pn_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 439, Short.MAX_VALUE)
         );
 
-        tp_opcionesCrud.addTab("tab1", pn_crearPc);
+        tp_opcionesCrud.addTab("tab1", pn_Eliminar);
+
+        pn_crearLaptop.setBackground(new java.awt.Color(153, 153, 153));
+
+        at1.setForeground(new java.awt.Color(0, 0, 0));
+        at1.setText("Host:");
+
+        at2.setForeground(new java.awt.Color(0, 0, 0));
+        at2.setText("IP:");
+
+        at3.setForeground(new java.awt.Color(0, 0, 0));
+        at3.setText("Mascara:");
+
+        at4.setForeground(new java.awt.Color(0, 0, 0));
+        at4.setText("Marca:");
+
+        at5.setForeground(new java.awt.Color(0, 0, 0));
+        at5.setText("Definición de pantalla:");
+
+        at6.setForeground(new java.awt.Color(0, 0, 0));
+        at6.setText("RGB:");
+
+        bg_grupo1.add(rb_rgbSi);
+        rb_rgbSi.setForeground(new java.awt.Color(0, 0, 0));
+        rb_rgbSi.setText("Si");
+
+        bg_grupo1.add(rb_rgbNo);
+        rb_rgbNo.setForeground(new java.awt.Color(0, 0, 0));
+        rb_rgbNo.setText("No");
+
+        jButton2.setBackground(new java.awt.Color(51, 255, 51));
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("enviar");
 
         javax.swing.GroupLayout pn_crearLaptopLayout = new javax.swing.GroupLayout(pn_crearLaptop);
         pn_crearLaptop.setLayout(pn_crearLaptopLayout);
         pn_crearLaptopLayout.setHorizontalGroup(
             pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGroup(pn_crearLaptopLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(at2)
+                    .addComponent(at3)
+                    .addComponent(at4)
+                    .addComponent(at5)
+                    .addGroup(pn_crearLaptopLayout.createSequentialGroup()
+                        .addComponent(at6)
+                        .addGap(18, 18, 18)
+                        .addComponent(rb_rgbSi)
+                        .addGap(26, 26, 26)
+                        .addComponent(rb_rgbNo))
+                    .addComponent(at1))
+                .addContainerGap(293, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_crearLaptopLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(14, 14, 14))
         );
         pn_crearLaptopLayout.setVerticalGroup(
             pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 439, Short.MAX_VALUE)
+            .addGroup(pn_crearLaptopLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(at1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(at2)
+                .addGap(32, 32, 32)
+                .addComponent(at3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(at4)
+                .addGap(42, 42, 42)
+                .addComponent(at5)
+                .addGap(42, 42, 42)
+                .addGroup(pn_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(at6)
+                    .addComponent(rb_rgbSi)
+                    .addComponent(rb_rgbNo))
+                .addGap(112, 112, 112)
+                .addComponent(jButton2)
+                .addGap(15, 15, 15))
         );
 
         tp_opcionesCrud.addTab("tab2", pn_crearLaptop);
+
+        pn_listar.setBackground(new java.awt.Color(153, 153, 153));
 
         javax.swing.GroupLayout pn_listarLayout = new javax.swing.GroupLayout(pn_listar);
         pn_listar.setLayout(pn_listarLayout);
@@ -92,18 +197,159 @@ public class MainMenu extends javax.swing.JFrame {
 
         tp_opcionesCrud.addTab("tab3", pn_listar);
 
-        javax.swing.GroupLayout pn_EliminarLayout = new javax.swing.GroupLayout(pn_Eliminar);
-        pn_Eliminar.setLayout(pn_EliminarLayout);
-        pn_EliminarLayout.setHorizontalGroup(
-            pn_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pn_Crear.setBackground(new java.awt.Color(153, 153, 153));
+        pn_Crear.setForeground(new java.awt.Color(0, 0, 0));
+
+        lb_escritorioAtributo1.setForeground(new java.awt.Color(0, 0, 0));
+        lb_escritorioAtributo1.setText("Host:");
+
+        lb_escritorioAtributo2.setForeground(new java.awt.Color(0, 0, 0));
+        lb_escritorioAtributo2.setText("IP:");
+
+        lb_escritorioAtributo3.setForeground(new java.awt.Color(0, 0, 0));
+        lb_escritorioAtributo3.setText("Ram:");
+
+        lb_escritorioAtributo4.setForeground(new java.awt.Color(0, 0, 0));
+        lb_escritorioAtributo4.setText("Mascara(ultimos digitos):");
+
+        lb_escritorioAtributo5.setForeground(new java.awt.Color(0, 0, 0));
+        lb_escritorioAtributo5.setText("Tipo:");
+
+        lb_escritorioAtributo6.setForeground(new java.awt.Color(0, 0, 0));
+        lb_escritorioAtributo6.setText("Almacenamiento:");
+
+        lb_escritorioAtributo7.setForeground(new java.awt.Color(0, 0, 0));
+        lb_escritorioAtributo7.setText("Tarjeta gráfica:");
+
+        atriHost.setBackground(new java.awt.Color(255, 255, 255));
+        atriHost.setForeground(new java.awt.Color(0, 0, 0));
+        atriHost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atriHostActionPerformed(evt);
+            }
+        });
+
+        atriMask.setBackground(new java.awt.Color(255, 255, 255));
+        atriMask.setForeground(new java.awt.Color(0, 0, 0));
+
+        atriAlm.setBackground(new java.awt.Color(255, 255, 255));
+        atriAlm.setForeground(new java.awt.Color(0, 0, 0));
+
+        atriRam.setBackground(new java.awt.Color(255, 255, 255));
+        atriRam.setForeground(new java.awt.Color(0, 0, 0));
+
+        atriIP.setBackground(new java.awt.Color(255, 255, 255));
+        atriIP.setForeground(new java.awt.Color(0, 0, 0));
+
+        boxTipo.setBackground(new java.awt.Color(255, 255, 255));
+        boxTipo.setForeground(new java.awt.Color(0, 0, 0));
+        boxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HDD", "SSD" }));
+
+        boxGraphics.setBackground(new java.awt.Color(255, 255, 255));
+        boxGraphics.setForeground(new java.awt.Color(0, 0, 0));
+        boxGraphics.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No", " " }));
+        boxGraphics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxGraphicsActionPerformed(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(51, 255, 51));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("crear");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pn_CrearLayout = new javax.swing.GroupLayout(pn_Crear);
+        pn_Crear.setLayout(pn_CrearLayout);
+        pn_CrearLayout.setHorizontalGroup(
+            pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_CrearLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pn_CrearLayout.createSequentialGroup()
+                        .addComponent(lb_escritorioAtributo1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(atriHost, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pn_CrearLayout.createSequentialGroup()
+                        .addComponent(lb_escritorioAtributo2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(atriIP, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pn_CrearLayout.createSequentialGroup()
+                        .addGroup(pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lb_escritorioAtributo3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lb_escritorioAtributo4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lb_escritorioAtributo5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lb_escritorioAtributo7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lb_escritorioAtributo6, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(atriAlm, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(atriRam, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(atriMask, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxTipo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxGraphics, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(76, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_CrearLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+        pn_CrearLayout.setVerticalGroup(
+            pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_CrearLayout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addGroup(pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_escritorioAtributo1)
+                    .addComponent(atriHost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_escritorioAtributo2)
+                    .addComponent(atriIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_escritorioAtributo4)
+                    .addComponent(atriMask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_escritorioAtributo3)
+                    .addComponent(atriRam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_escritorioAtributo6)
+                    .addComponent(atriAlm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_escritorioAtributo5)
+                    .addComponent(boxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(pn_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_escritorioAtributo7)
+                    .addComponent(boxGraphics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(81, 81, 81)
+                .addComponent(jButton1)
+                .addGap(17, 17, 17))
+        );
+
+        tp_opcionesCrud.addTab("tab4", pn_Crear);
+
+        base.setBackground(new java.awt.Color(153, 153, 153));
+
+        javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
+        base.setLayout(baseLayout);
+        baseLayout.setHorizontalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 490, Short.MAX_VALUE)
         );
-        pn_EliminarLayout.setVerticalGroup(
-            pn_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        baseLayout.setVerticalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 439, Short.MAX_VALUE)
         );
 
-        tp_opcionesCrud.addTab("tab4", pn_Eliminar);
+        tp_opcionesCrud.addTab("tab5", base);
 
         pn_crudPrincipal.add(tp_opcionesCrud, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -30, 490, 470));
 
@@ -111,6 +357,11 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bt_ingreseEscritorio.setText("Ingrese PC escritorio");
+        bt_ingreseEscritorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_ingreseEscritorioActionPerformed(evt);
+            }
+        });
         jPanel2.add(bt_ingreseEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 45, -1, -1));
 
         bt_ingreseLaptop.setText("Ingrese Laptop");
@@ -127,7 +378,7 @@ public class MainMenu extends javax.swing.JFrame {
         bt_regreso.setText("Salida");
         jPanel2.add(bt_regreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 279, -1, -1));
 
-        pn_crudPrincipal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 161, 432));
+        pn_crudPrincipal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 161, 440));
 
         wd_crudMenu.getContentPane().add(pn_crudPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, -1));
 
@@ -147,14 +398,15 @@ public class MainMenu extends javax.swing.JFrame {
         bt_crudPC1.setBackground(new java.awt.Color(153, 153, 153));
         bt_crudPC1.setForeground(new java.awt.Color(0, 0, 0));
         bt_crudPC1.setText("Crud pc");
-
-        bt_IngresePC.setBackground(new java.awt.Color(153, 153, 153));
-        bt_IngresePC.setForeground(new java.awt.Color(0, 0, 0));
-        bt_IngresePC.setText("Crud pc");
+        bt_crudPC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_crudPC1ActionPerformed(evt);
+            }
+        });
 
         bt_salida.setBackground(new java.awt.Color(153, 153, 153));
         bt_salida.setForeground(new java.awt.Color(0, 0, 0));
-        bt_salida.setText("Crud pc");
+        bt_salida.setText("Salir");
         bt_salida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_salidaActionPerformed(evt);
@@ -166,46 +418,29 @@ public class MainMenu extends javax.swing.JFrame {
         pn_menuLayout.setHorizontalGroup(
             pn_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_menuLayout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(lb_tituloMenu)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_menuLayout.createSequentialGroup()
-                .addContainerGap(131, Short.MAX_VALUE)
-                .addGroup(pn_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(232, 232, 232)
+                .addGroup(pn_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bt_crudPC, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bt_salida, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_crudPC, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(115, 115, 115))
-            .addGroup(pn_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_menuLayout.createSequentialGroup()
-                    .addContainerGap(134, Short.MAX_VALUE)
-                    .addComponent(bt_crudPC1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(112, 112, 112)))
-            .addGroup(pn_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_menuLayout.createSequentialGroup()
-                    .addContainerGap(134, Short.MAX_VALUE)
-                    .addComponent(bt_IngresePC, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(112, 112, 112)))
+                    .addComponent(bt_crudPC1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(233, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_menuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_tituloMenu)
+                .addGap(253, 253, 253))
         );
         pn_menuLayout.setVerticalGroup(
             pn_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_menuLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(25, 25, 25)
                 .addComponent(lb_tituloMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
+                .addGap(50, 50, 50)
+                .addComponent(bt_crudPC1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
                 .addComponent(bt_crudPC, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(54, 54, 54)
                 .addComponent(bt_salida, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
-            .addGroup(pn_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pn_menuLayout.createSequentialGroup()
-                    .addGap(70, 70, 70)
-                    .addComponent(bt_crudPC1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(273, Short.MAX_VALUE)))
-            .addGroup(pn_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pn_menuLayout.createSequentialGroup()
-                    .addGap(70, 70, 70)
-                    .addComponent(bt_IngresePC, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(273, Short.MAX_VALUE)))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -230,6 +465,78 @@ public class MainMenu extends javax.swing.JFrame {
     private void bt_ingreseLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ingreseLaptopActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bt_ingreseLaptopActionPerformed
+
+    private void atriHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atriHostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_atriHostActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String Host = atriHost.getText();
+        String Ip = atriIP.getText();
+        String Mascara = atriMask.getText();
+        String Ram = atriRam.getText();
+        String Alm = atriAlm.getText();
+        String tipo = (String) boxTipo.getSelectedItem();
+        String grphcs = (String) boxGraphics.getSelectedItem();
+        boolean t1;
+        boolean t2;
+        try {
+            //check ip
+            String[] checkIp = Ip.split(".");
+            for (String string : checkIp) {
+                if ((Integer.parseInt(string) < 0 || Integer.parseInt(string) > 255) || checkIp.length != 4) {
+                    throw new Exception();
+                }
+            }
+            //check mask
+            String[] maskOptions = {"192","224","240","248","252","254","255"};
+            int x = 0;
+            for (String maskOption : maskOptions) {
+                if(maskOption.equals(Mascara)){
+                    x++;
+                }
+            }
+            if(x == 0){
+                throw new Exception();
+            }
+
+            if (tipo.equals("HDD")) {
+                t1 = true;
+            } else {
+                t1 = false;
+            }
+
+            if (grphcs.equals("Si")) {
+                t2 = true;
+            } else {
+                t2 = false;
+            }
+            PC_Escritorio nueva = new PC_Escritorio(Integer.parseInt(Ram), Integer.parseInt(Alm), t1, t2, Ip, Mascara, Host);
+            pcs.add(nueva);
+           atriHost.setText(null);
+           atriAlm.setText(null);
+           atriIP.setText(null);
+           atriMask.setText(null);
+           atriRam.setText(null);
+           tp_opcionesCrud.setSelectedIndex(4);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error");
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void boxGraphicsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxGraphicsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxGraphicsActionPerformed
+
+    private void bt_ingreseEscritorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ingreseEscritorioActionPerformed
+        tp_opcionesCrud.setSelectedIndex(3);
+    }//GEN-LAST:event_bt_ingreseEscritorioActionPerformed
+
+    private void bt_crudPC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crudPC1ActionPerformed
+        wd_crudMenu.setVisible(true); 
+        tp_opcionesCrud.setSelectedIndex(4);// TODO add your handling code here:
+    }//GEN-LAST:event_bt_crudPC1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,7 +574,21 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_IngresePC;
+    private javax.swing.JLabel at1;
+    private javax.swing.JLabel at2;
+    private javax.swing.JLabel at3;
+    private javax.swing.JLabel at4;
+    private javax.swing.JLabel at5;
+    private javax.swing.JLabel at6;
+    private javax.swing.JTextField atriAlm;
+    private javax.swing.JTextField atriHost;
+    private javax.swing.JTextField atriIP;
+    private javax.swing.JTextField atriMask;
+    private javax.swing.JTextField atriRam;
+    private javax.swing.JPanel base;
+    private javax.swing.ButtonGroup bg_grupo1;
+    private javax.swing.JComboBox<String> boxGraphics;
+    private javax.swing.JComboBox<String> boxTipo;
     private javax.swing.JButton bt_crudPC;
     private javax.swing.JButton bt_crudPC1;
     private javax.swing.JButton bt_ingreseEscritorio;
@@ -275,14 +596,25 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton bt_listar;
     private javax.swing.JButton bt_regreso;
     private javax.swing.JButton bt_salida;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lb_escritorioAtributo1;
+    private javax.swing.JLabel lb_escritorioAtributo2;
+    private javax.swing.JLabel lb_escritorioAtributo3;
+    private javax.swing.JLabel lb_escritorioAtributo4;
+    private javax.swing.JLabel lb_escritorioAtributo5;
+    private javax.swing.JLabel lb_escritorioAtributo6;
+    private javax.swing.JLabel lb_escritorioAtributo7;
     private javax.swing.JLabel lb_tituloMenu;
+    private javax.swing.JPanel pn_Crear;
     private javax.swing.JPanel pn_Eliminar;
     private javax.swing.JPanel pn_crearLaptop;
-    private javax.swing.JPanel pn_crearPc;
     private javax.swing.JPanel pn_crudPrincipal;
     private javax.swing.JPanel pn_listar;
     private javax.swing.JPanel pn_menu;
+    private javax.swing.JRadioButton rb_rgbNo;
+    private javax.swing.JRadioButton rb_rgbSi;
     private javax.swing.JTabbedPane tp_opcionesCrud;
     private javax.swing.JFrame wd_crudMenu;
     // End of variables declaration//GEN-END:variables
