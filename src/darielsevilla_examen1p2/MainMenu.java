@@ -481,6 +481,11 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.add(bt_listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 212, -1, -1));
 
         bt_regreso.setText("Salida");
+        bt_regreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_regresoActionPerformed(evt);
+            }
+        });
         jPanel2.add(bt_regreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
         bt_eliminar.setText("Eliminar");
@@ -507,6 +512,11 @@ public class MainMenu extends javax.swing.JFrame {
         bt_crudPC.setBackground(new java.awt.Color(153, 153, 153));
         bt_crudPC.setForeground(new java.awt.Color(0, 0, 0));
         bt_crudPC.setText("Ingrese PC");
+        bt_crudPC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_crudPCActionPerformed(evt);
+            }
+        });
 
         bt_crudPC1.setBackground(new java.awt.Color(153, 153, 153));
         bt_crudPC1.setForeground(new java.awt.Color(0, 0, 0));
@@ -596,7 +606,7 @@ public class MainMenu extends javax.swing.JFrame {
         try {
             //check ip
             String[] checkIp = Ip.split("\\.");
-            System.out.println(checkIp.length);
+          
             for (String string : checkIp) {
                 if ((Integer.parseInt(string) < 0 || Integer.parseInt(string) > 255) || checkIp.length != 4) {
                     throw new Exception();
@@ -735,6 +745,14 @@ public class MainMenu extends javax.swing.JFrame {
         }
         tp_opcionesCrud.setSelectedIndex(4);
     }//GEN-LAST:event_bt_elimnarActionPerformed
+
+    private void bt_regresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_regresoActionPerformed
+        wd_crudMenu.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_regresoActionPerformed
+
+    private void bt_crudPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crudPCActionPerformed
+        this.setVisible(false);    // TODO add your handling code here:
+    }//GEN-LAST:event_bt_crudPCActionPerformed
 
     /**
      * @param args the command line arguments
