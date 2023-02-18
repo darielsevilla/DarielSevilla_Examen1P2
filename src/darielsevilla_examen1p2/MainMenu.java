@@ -6,6 +6,7 @@ package darielsevilla_examen1p2;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -17,7 +18,6 @@ import javax.swing.table.DefaultTableModel;
 public class MainMenu extends javax.swing.JFrame {
 
     ArrayList<PC> pcs = new ArrayList();
-    
 
     public MainMenu() {
         initComponents();
@@ -586,7 +586,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_salidaActionPerformed
 
     private void bt_ingreseLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ingreseLaptopActionPerformed
-        tp_opcionesCrud.setSelectedIndex(1);       
+        tp_opcionesCrud.setSelectedIndex(1);
     }//GEN-LAST:event_bt_ingreseLaptopActionPerformed
 
     private void atriHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atriHostActionPerformed
@@ -606,24 +606,24 @@ public class MainMenu extends javax.swing.JFrame {
         try {
             //check ip
             String[] checkIp = Ip.split("\\.");
-          
+
             for (String string : checkIp) {
                 if ((Integer.parseInt(string) < 0 || Integer.parseInt(string) > 255) || checkIp.length != 4) {
                     throw new Exception();
                 }
             }
-            if(checkIp.length  != 4){
+            if (checkIp.length != 4) {
                 throw new Exception();
             }
             //check mask
-            String[] maskOptions = {"192","224","240","248","252","254","255"};
+            String[] maskOptions = {"192", "224", "240", "248", "252", "254", "255"};
             int x = 0;
             for (String maskOption : maskOptions) {
-                if(maskOption.equals(Mascara)){
+                if (maskOption.equals(Mascara)) {
                     x++;
                 }
             }
-            if(x == 0){
+            if (x == 0) {
                 throw new Exception();
             }
 
@@ -641,12 +641,12 @@ public class MainMenu extends javax.swing.JFrame {
             String mask = "255.255.255." + Mascara;
             PC_Escritorio nueva = new PC_Escritorio(Integer.parseInt(Ram), Integer.parseInt(Alm), t1, t2, Ip, mask, Host);
             pcs.add(nueva);
-           atriHost.setText(null);
-           atriAlm.setText(null);
-           atriIP.setText(null);
-           atriMask.setText(null);
-           atriRam.setText(null);
-           tp_opcionesCrud.setSelectedIndex(4);
+            atriHost.setText(null);
+            atriAlm.setText(null);
+            atriIP.setText(null);
+            atriMask.setText(null);
+            atriRam.setText(null);
+            tp_opcionesCrud.setSelectedIndex(4);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error");
         }
@@ -662,7 +662,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_ingreseEscritorioActionPerformed
 
     private void bt_crudPC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crudPC1ActionPerformed
-        wd_crudMenu.setVisible(true); 
+        wd_crudMenu.setVisible(true);
         tp_opcionesCrud.setSelectedIndex(4);// TODO add your handling code here:
     }//GEN-LAST:event_bt_crudPC1ActionPerformed
 
@@ -670,11 +670,11 @@ public class MainMenu extends javax.swing.JFrame {
         String Host = tf_host.getText();
         String Ip = tf_ip.getText();
         String Mascara = tf_mask.getText();
-        String Marca = tf_marca.getText(); 
+        String Marca = tf_marca.getText();
         String def = tf_def.getText();
         boolean truth;
-        
-        try{
+
+        try {
             //check ip
             String[] checkIp = Ip.split(".");
             for (String string : checkIp) {
@@ -683,27 +683,26 @@ public class MainMenu extends javax.swing.JFrame {
                 }
             }
             //check mask
-            String[] maskOptions = {"192","224","240","248","252","254","255"};
+            String[] maskOptions = {"192", "224", "240", "248", "252", "254", "255"};
             int x = 0;
             for (String maskOption : maskOptions) {
-                if(maskOption.equals(Mascara)){
+                if (maskOption.equals(Mascara)) {
                     x++;
                 }
             }
-            if(x == 0){
+            if (x == 0) {
                 throw new Exception();
             }
-            
-            
-             String mask = "255.255.255." + Mascara;
-             pcs.add(new Laptop(Marca, def, rb_rgbSi.isSelected(), Ip, mask, Host));
-             tf_host.setText(null);
-             tf_ip.setText(null);
-             tf_mask.setText(null);
-             tf_marca.setText(null);
-             tf_def.setText(null);
-             tp_opcionesCrud.setSelectedIndex(4);
-        }catch(Exception e){
+
+            String mask = "255.255.255." + Mascara;
+            pcs.add(new Laptop(Marca, def, rb_rgbSi.isSelected(), Ip, mask, Host));
+            tf_host.setText(null);
+            tf_ip.setText(null);
+            tf_mask.setText(null);
+            tf_marca.setText(null);
+            tf_def.setText(null);
+            tp_opcionesCrud.setSelectedIndex(4);
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -714,19 +713,19 @@ public class MainMenu extends javax.swing.JFrame {
         for (PC pc : pcs) {
             resp += "PC " + x + "\n";
             resp += "Nombre: " + pc.getHostname() + " IP: " + pc.getIp() + " Mascara: " + pc.getMascara() + "\n\n";
-            
+
         }
-        
+
         ta_listar.setText(resp);
-        tp_opcionesCrud.setSelectedIndex(2);        
-       
+        tp_opcionesCrud.setSelectedIndex(2);
+
     }//GEN-LAST:event_bt_listarActionPerformed
 
     private void bt_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_eliminarActionPerformed
-        DefaultComboBoxModel mod =(DefaultComboBoxModel) cb_eliminar.getModel();
+        DefaultComboBoxModel mod = (DefaultComboBoxModel) cb_eliminar.getModel();
         mod.removeAllElements();
         ArrayList<String> nombres = new ArrayList();
-        
+
         for (PC pc : pcs) {
             nombres.add(pc.getHostname());
         }
@@ -735,9 +734,9 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_eliminarActionPerformed
 
     private void bt_elimnarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_elimnarActionPerformed
-       String eliminar =  (String) cb_eliminar.getSelectedItem();
+        String eliminar = (String) cb_eliminar.getSelectedItem();
         for (PC pc : pcs) {
-            if(pc.getHostname().equals(eliminar)){
+            if (pc.getHostname().equals(eliminar)) {
                 pcs.remove(pc);
                 JOptionPane.showMessageDialog(null, "pc eliminada");
                 break;
@@ -751,7 +750,50 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_regresoActionPerformed
 
     private void bt_crudPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crudPCActionPerformed
-        this.setVisible(false);    // TODO add your handling code here:
+        this.setVisible(false);
+        String cmd = "";
+        PC actual = null;
+        Scanner lea = new Scanner(System.in);
+        do {
+            if (actual == null) {
+                for (PC pc : pcs) {
+                    System.out.println("Usuario: " +pc.getHostname() + " IP: " + pc.getIp());
+                }
+                System.out.println("Ingrese ip:");
+                String ip = lea.next();
+                //conseguir pc actual
+
+                for (PC pc : pcs) {
+                    if (ip.equals(pc.getIp())) {
+                        actual = pc;
+                        break;
+                    }
+                }
+            }
+            //validacion
+            if (actual == null) {
+                System.out.println("Ingrese valor valido");
+            } else {
+                //metodos
+                System.out.print(actual.getHostname() + "#");
+                cmd = lea.next();
+                if (cmd.equals("exit")) {
+                    break;
+                } else if (cmd.equals("show")) {
+                    System.out.println(actual);
+                }else if(cmd.contains("_")){
+                    //metodo ping
+                    String[] array = cmd.split("_");
+                    if(array[0].equals("ping")){
+                        System.out.println(actual.ping(array[1], pcs));
+                        
+                    }else{
+                        System.out.println("No existe el comando *" + array[0] + "*\n");
+                    }
+                }
+            }
+        } while (!cmd.equals("exit"));
+        this.setVisible(true);
     }//GEN-LAST:event_bt_crudPCActionPerformed
 
     /**

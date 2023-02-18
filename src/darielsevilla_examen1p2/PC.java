@@ -58,7 +58,7 @@ public class PC {
     }
 
     public String ping(String ip, ArrayList<PC> pc) {
-        String resp = "Pinging to " + ip + "with 32 bits of data:\n";
+        String resp = "Pinging to " + ip + " with 32 bits of data:\n";
 
         //chequear si esta
         boolean isThere = false;
@@ -75,13 +75,14 @@ public class PC {
             String[] conjuntos2 = ip.split("\\.");
 
             for (int i = 0; i < 3; i++) {
-                if (Integer.parseInt(conjuntos1[i]) == Integer.parseInt(conjuntos2[i])) {
+                if (Integer.parseInt(conjuntos1[i]) != Integer.parseInt(conjuntos2[i])) {
                     aintEqual++;
                 }
             }
-
+           
             if (aintEqual == 0) {
-                int lastMask = Integer.parseInt(mascara.split(".")[3]);
+                
+                int lastMask = Integer.parseInt(mascara.split("\\.")[3]);
                 String binMask = DecimalBinario("", lastMask);
                 String binIp1 = DecimalBinario("", Integer.parseInt(conjuntos1[3]));
                 String binIp2 = DecimalBinario("", Integer.parseInt(conjuntos2[3]));
@@ -95,7 +96,8 @@ public class PC {
                     }
                 }
                 //comparar
-
+                System.out.println(binIp1);
+                System.out.println(binIp2);
                 for (int i = 0; i < cont; i++) {
                     if (binIp1.charAt(i) != binIp2.charAt(i)) {
                         aintEqual++;
@@ -119,7 +121,7 @@ public class PC {
                 }
 
                 resp += "Ping statistics for " + ip + ":\n";
-                resp += "   Packets: Sent = 4, Received = 0, lost = 4 (100% loss)\n";
+                resp += "   Packets: Sent = 4, Received = 4, lost = 0 (0& loss)\n";
             }
         } else {
             //No esta es la pc
